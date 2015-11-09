@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.03">
+    <BkToCstmrAcctRpt>
+        <GrpHdr>
+            <MsgId>Whatever_KtoNr0000000000_10-10-2015_0744</MsgId>
+            <CreDtTm>2015-10-10T07:44:33.092+01:00</CreDtTm>
+            <MsgRcpt>
+                <Nm>Klaus King Miranda Queen</Nm>
+            </MsgRcpt>
+        </GrpHdr>
+        <Rpt>
+            <Id>Whatever_KtoNr0000000000_10-10-2015_0744</Id>
+            <CreDtTm>2015-10-10T07:44:33.092+01:00</CreDtTm>
+            <Acct>
+                <Id>
+                    <IBAN>XX00000000000000000000</IBAN>
+                </Id>
+            </Acct>
+            <Bal>
+                <Tp>
+                    <CdOrPrtry>
+                        <Cd>CLAV</Cd>
+                    </CdOrPrtry>
+                </Tp>
+                <Amt Ccy="EUR">1.00</Amt>
+                <CdtDbtInd>CRDT</CdtDbtInd>
+                <Dt>
+                    <Dt>2015-10-10T07:44:33.092+01:00</Dt>
+                </Dt>
+            </Bal>
+            <Ntry>
+                <Amt Ccy="EUR">10.00</Amt>
+                <CdtDbtInd>DBIT</CdtDbtInd>
+                <Sts>BOOK</Sts>
+                <BookgDt>
+                    <Dt>2015-10-10</Dt>
+                </BookgDt>
+                <ValDt>
+                    <Dt>2015-10-10</Dt>
+                </ValDt>
+                <NtryDtls>
+                    <TxDtls>
+                        <BkTxCd>
+                            <Prtry>
+                                <Cd>NDDT+105</Cd>
+                                <Issr>ZKA</Issr>
+                            </Prtry>
+                        </BkTxCd>
+                        <RltdPties>
+                            <Dbtr>
+                                <Nm>Klaus King Miranda Queen</Nm>
+                            </Dbtr>
+                            <Cdtr>
+                                <Nm>ABCD</Nm>
+                            </Cdtr>
+                        </RltdPties>
+                        <RmtInf>
+                            <Ustrd>line 1.1</Ustrd>
+                            <Ustrd>line 1.2</Ustrd>
+                        </RmtInf>
+                    </TxDtls>
+                </NtryDtls>
+            </Ntry>
+            <Ntry>
+                <Amt Ccy="EUR">2.00</Amt>
+                <CdtDbtInd>CRDT</CdtDbtInd>
+                <Sts>BOOK</Sts>
+                <BookgDt>
+                    <Dt>2015-10-10</Dt>
+                </BookgDt>
+                <ValDt>
+                    <Dt>2015-10-10</Dt>
+                </ValDt>
+                <NtryDtls>
+                    <TxDtls>
+                        <BkTxCd>
+                            <Prtry>
+                                <Cd>NTRF+153</Cd>
+                                <Issr>ZKA</Issr>
+                            </Prtry>
+                        </BkTxCd>
+                        <RltdPties>
+                            <Dbtr>
+                                <Nm>EFGH</Nm>
+                            </Dbtr>
+                            <Cdtr>
+                                <Nm>Klaus King Miranda Queen</Nm>
+                            </Cdtr>
+                        </RltdPties>
+                        <RmtInf>
+                            <Ustrd>line 2.1</Ustrd>
+                            <Ustrd>line 2.2</Ustrd>
+                        </RmtInf>
+                    </TxDtls>
+                </NtryDtls>
+            </Ntry>
+            <AddtlRptInf>Summe vorgemerkter Umsätze: 0 EUR</AddtlRptInf>
+        </Rpt>
+    </BkToCstmrAcctRpt>
+</document>

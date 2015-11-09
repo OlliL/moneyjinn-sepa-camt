@@ -24,8 +24,24 @@
 // SUCH DAMAGE.
 //
 
-package org.moneyjinn.sepa.camt.model;
+package org.laladev.moneyjinn.sepa.camt.parser;
 
-public class BankToCustomerAccountReport {
+import org.laladev.moneyjinn.sepa.camt.model.transactiondetails.BankTransactionCode;
+import org.laladev.moneyjinn.sepa.camt.util.DOMUtil;
+import org.w3c.dom.Element;
+
+public class BkTxCdParser {
+	public BankTransactionCode parse(final Element bkTxCd) {
+		final BankTransactionCode bankTransactionCode = new BankTransactionCode();
+
+		final Element prtry = DOMUtil.getElementByName(bkTxCd, "Prtry");
+		final String cd = DOMUtil.getElementValueByName(prtry, "Cd");
+		final String issr = DOMUtil.getElementValueByName(prtry, "Issr");
+
+		bankTransactionCode.setCode(cd);
+		bankTransactionCode.setIssuer(issr);
+
+		return bankTransactionCode;
+	}
 
 }

@@ -24,13 +24,27 @@
 // SUCH DAMAGE.
 //
 
-package org.moneyjinn.sepa.camt.mapper;
+package org.laladev.moneyjinn.sepa.camt.parser;
 
-import org.moneyjinn.sepa.camt.model.BankToCustomerAccountReport;
+import org.laladev.moneyjinn.sepa.camt.model.GroupHeader;
+import org.laladev.moneyjinn.sepa.camt.util.DOMUtil;
+import org.w3c.dom.Element;
 
-public class BankToCustomerAccountReportMapper {
+public class GrpHdrParser {
 
-	public BankToCustomerAccountReport mapXml(final String xml) {
-		return null;
+	private final MsgRcptParser msgRcptParser = new MsgRcptParser();
+
+	public GroupHeader parse(final Element grpHdr) {
+		final GroupHeader groupHeader = new GroupHeader();
+
+		final String msgId = DOMUtil.getElementValueByName(grpHdr, "MsgId");
+		final Element creDtTm = DOMUtil.getElementByName(grpHdr, "CreDtTm");
+		final Element msgRcpt = DOMUtil.getElementByName(grpHdr, "MsgRcpt");
+
+		groupHeader.setMessageIdentification(msgId);
+		groupHeader.setCreationDateTime(DOMUtil.getDateTime(creDtTm));
+		groupHeader.setMessageRecipient(this.msgRcptParser.parse(msgRcpt));
+
+		return groupHeader;
 	}
 }
