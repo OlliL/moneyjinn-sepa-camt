@@ -26,6 +26,7 @@
 
 package org.laladev.moneyjinn.sepa.camt.mapper;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -42,6 +43,10 @@ public class BankToCustomerAccountReportMapper {
 
 	public BankToCustomerAccountReport mapXml(final InputSource xml) throws Exception {
 		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+
+		factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+		factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+
 		final DocumentBuilder builder = factory.newDocumentBuilder();
 		final Document document = builder.parse(xml);
 		final Element documentElement = document.getDocumentElement();
