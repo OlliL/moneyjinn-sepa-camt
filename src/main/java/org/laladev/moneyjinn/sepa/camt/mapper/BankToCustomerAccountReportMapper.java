@@ -50,7 +50,8 @@ public class BankToCustomerAccountReportMapper {
 		final DocumentBuilder builder = factory.newDocumentBuilder();
 		final Document document = builder.parse(xml);
 		final Element documentElement = document.getDocumentElement();
-		if (documentElement.getAttribute("xmlns").equals("urn:iso:std:iso:20022:tech:xsd:camt.052.001.03")) {
+		if (documentElement.getAttribute("xmlns").equals("urn:iso:std:iso:20022:tech:xsd:camt.052.001.03")
+				|| documentElement.getAttribute("xmlns").equals("urn:iso:std:iso:20022:tech:xsd:camt.052.001.06")) {
 			final Element bkToCstmrAcctRpt = DOMUtil.getElementByName(documentElement, "BkToCstmrAcctRpt");
 			if (bkToCstmrAcctRpt != null) {
 				final BankToCustomerAccountReport bankToCustomerAccountReport = this.bkToCstmrAcctRptParser
