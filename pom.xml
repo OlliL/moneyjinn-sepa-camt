@@ -16,7 +16,6 @@
 	</properties>
 
 	<dependencies>
-		<!-- FIXME - Update to 4.0.0 - package path changed with 3.0.0 onwards -->
 		<dependency>
 			<groupId>jakarta.xml.bind</groupId>
 			<artifactId>jakarta.xml.bind-api</artifactId>
