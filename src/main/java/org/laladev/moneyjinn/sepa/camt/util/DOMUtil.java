@@ -30,11 +30,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.xml.bind.DatatypeConverter;
-
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import jakarta.xml.bind.DatatypeConverter;
 
 public class DOMUtil {
 	public static Element getElementByName(final Element element, final String name) {
@@ -43,7 +43,8 @@ public class DOMUtil {
 			// final int length = nodeList.getLength();
 			// for (int i = 0; i < length; i++) {
 			// final Node node = nodeList.item(i);
-			// if (node.getNodeType() == Node.ELEMENT_NODE && node.getNodeName().equals(name)) {
+			// if (node.getNodeType() == Node.ELEMENT_NODE &&
+			// node.getNodeName().equals(name)) {
 			// return (Element) node;
 			// }
 			// }
@@ -61,13 +62,14 @@ public class DOMUtil {
 	}
 
 	public static List<Element> getElementsByName(final Element element, final String name) {
-		final List<Element> elements = new ArrayList<Element>();
+		final List<Element> elements = new ArrayList<>();
 		// if (element != null) {
 		// final NodeList nodeList = element.getChildNodes();
 		// final int length = nodeList.getLength();
 		// for (int i = 0; i < length; i++) {
 		// final Node node = nodeList.item(i);
-		// if (node.getNodeType() == Node.ELEMENT_NODE && node.getNodeName().equals(name)) {
+		// if (node.getNodeType() == Node.ELEMENT_NODE &&
+		// node.getNodeName().equals(name)) {
 		// elements.add((Element) node);
 		// }
 		// }
@@ -93,7 +95,7 @@ public class DOMUtil {
 
 	public static List<String> getElementValuesByName(final Element element, final String name) {
 		final List<Element> childElements = getElementsByName(element, name);
-		final List<String> values = new ArrayList<String>();
+		final List<String> values = new ArrayList<>();
 		if (!childElements.isEmpty()) {
 			for (final Element childElement : childElements) {
 				values.add(childElement.getTextContent());

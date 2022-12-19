@@ -10,7 +10,6 @@ import java.util.TimeZone;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.laladev.moneyjinn.sepa.camt.mapper.BankToCustomerAccountReportMapper;
 import org.laladev.moneyjinn.sepa.camt.model.Account;
 import org.laladev.moneyjinn.sepa.camt.model.Balance;
 import org.laladev.moneyjinn.sepa.camt.model.BalanceType12Code;
