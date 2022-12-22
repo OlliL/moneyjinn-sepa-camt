@@ -8,8 +8,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.laladev.moneyjinn.sepa.camt.model.Account;
 import org.laladev.moneyjinn.sepa.camt.model.Balance;
 import org.laladev.moneyjinn.sepa.camt.model.BalanceType12Code;
@@ -49,42 +49,42 @@ public class BankToCustomerAccountReportMapperTest {
 		final InputStream is = classloader.getResourceAsStream("test_1.xml");
 		final InputSource xml = new InputSource(is);
 		final BankToCustomerAccountReport actual = this.mapper.mapXml(xml);
-		Assert.assertEquals(expected.getGroupHeader(), actual.getGroupHeader());
+		Assertions.assertEquals(expected.getGroupHeader(), actual.getGroupHeader());
 
-		Assert.assertEquals(expected.getReport().getAdditionalReportInformation(),
+		Assertions.assertEquals(expected.getReport().getAdditionalReportInformation(),
 				actual.getReport().getAdditionalReportInformation());
-		Assert.assertEquals(expected.getReport().getIdentification(), actual.getReport().getIdentification());
-		Assert.assertEquals(expected.getReport().getAccount(), actual.getReport().getAccount());
-		Assert.assertEquals(expected.getReport().getBalance(), actual.getReport().getBalance());
-		Assert.assertEquals(expected.getReport().getCreationDateTime(), actual.getReport().getCreationDateTime());
+		Assertions.assertEquals(expected.getReport().getIdentification(), actual.getReport().getIdentification());
+		Assertions.assertEquals(expected.getReport().getAccount(), actual.getReport().getAccount());
+		Assertions.assertEquals(expected.getReport().getBalance(), actual.getReport().getBalance());
+		Assertions.assertEquals(expected.getReport().getCreationDateTime(), actual.getReport().getCreationDateTime());
 
-		Assert.assertEquals(expected.getReport().getEntries().get(0).getAmount(),
+		Assertions.assertEquals(expected.getReport().getEntries().get(0).getAmount(),
 				actual.getReport().getEntries().get(0).getAmount());
-		Assert.assertEquals(expected.getReport().getEntries().get(0).getCreditDebitIndicator(),
+		Assertions.assertEquals(expected.getReport().getEntries().get(0).getCreditDebitIndicator(),
 				actual.getReport().getEntries().get(0).getCreditDebitIndicator());
-		Assert.assertEquals(expected.getReport().getEntries().get(0).getEntryDetails(),
+		Assertions.assertEquals(expected.getReport().getEntries().get(0).getEntryDetails(),
 				actual.getReport().getEntries().get(0).getEntryDetails());
-		Assert.assertEquals(expected.getReport().getEntries().get(0).getStatus(),
+		Assertions.assertEquals(expected.getReport().getEntries().get(0).getStatus(),
 				actual.getReport().getEntries().get(0).getStatus());
-		Assert.assertEquals(expected.getReport().getEntries().get(0).getBookingDate(),
+		Assertions.assertEquals(expected.getReport().getEntries().get(0).getBookingDate(),
 				actual.getReport().getEntries().get(0).getBookingDate());
-		Assert.assertEquals(expected.getReport().getEntries().get(0).getValueDate(),
+		Assertions.assertEquals(expected.getReport().getEntries().get(0).getValueDate(),
 				actual.getReport().getEntries().get(0).getValueDate());
 
-		Assert.assertEquals(expected.getReport().getEntries().get(1).getAmount(),
+		Assertions.assertEquals(expected.getReport().getEntries().get(1).getAmount(),
 				actual.getReport().getEntries().get(1).getAmount());
-		Assert.assertEquals(expected.getReport().getEntries().get(1).getCreditDebitIndicator(),
+		Assertions.assertEquals(expected.getReport().getEntries().get(1).getCreditDebitIndicator(),
 				actual.getReport().getEntries().get(1).getCreditDebitIndicator());
-		Assert.assertEquals(expected.getReport().getEntries().get(1).getEntryDetails(),
+		Assertions.assertEquals(expected.getReport().getEntries().get(1).getEntryDetails(),
 				actual.getReport().getEntries().get(1).getEntryDetails());
-		Assert.assertEquals(expected.getReport().getEntries().get(1).getStatus(),
+		Assertions.assertEquals(expected.getReport().getEntries().get(1).getStatus(),
 				actual.getReport().getEntries().get(1).getStatus());
-		Assert.assertEquals(expected.getReport().getEntries().get(1).getBookingDate(),
+		Assertions.assertEquals(expected.getReport().getEntries().get(1).getBookingDate(),
 				actual.getReport().getEntries().get(1).getBookingDate());
-		Assert.assertEquals(expected.getReport().getEntries().get(1).getValueDate(),
+		Assertions.assertEquals(expected.getReport().getEntries().get(1).getValueDate(),
 				actual.getReport().getEntries().get(1).getValueDate());
 
-		Assert.assertEquals(expected.getReport(), actual.getReport());
+		Assertions.assertEquals(expected.getReport(), actual.getReport());
 	}
 
 	private GregorianCalendar getIdCalendar() {
