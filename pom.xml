@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 
 	<scm>
-		<developerConnection>scm:git:https://github.com/OlliL/moneyjinn-server.git</developerConnection>
+		<developerConnection>scm:git:https://github.com/OlliL/moneyjinn-sepa-camt.git</developerConnection>
 	</scm>
 
 	<properties>
