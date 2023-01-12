@@ -2,12 +2,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.laladev.moneyjinn</groupId>
 	<artifactId>moneyjinn-sepa-camt</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<scm>
 		<developerConnection>scm:git:https://github.com/OlliL/moneyjinn-sepa-camt.git</developerConnection>
-	  <tag>v1.0.0</tag>
+	  <tag>HEAD</tag>
   </scm>
 
 	<properties>
