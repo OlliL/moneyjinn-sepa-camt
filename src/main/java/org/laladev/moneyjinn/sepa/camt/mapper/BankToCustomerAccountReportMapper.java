@@ -29,7 +29,6 @@ package org.laladev.moneyjinn.sepa.camt.mapper;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.laladev.moneyjinn.sepa.camt.model.BankToCustomerAccountReport;
 import org.laladev.moneyjinn.sepa.camt.parser.BkToCstmrAcctRptParser;
 import org.laladev.moneyjinn.sepa.camt.util.DOMUtil;
@@ -39,26 +38,31 @@ import org.xml.sax.InputSource;
 
 public class BankToCustomerAccountReportMapper {
 
-	private final BkToCstmrAcctRptParser bkToCstmrAcctRptParser = new BkToCstmrAcctRptParser();
+  private final BkToCstmrAcctRptParser bkToCstmrAcctRptParser = new BkToCstmrAcctRptParser();
 
-	public BankToCustomerAccountReport mapXml(final InputSource xml) throws Exception {
-		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+  public BankToCustomerAccountReport mapXml(final InputSource xml) throws Exception {
+    final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
-		factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
-		factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+    factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+    factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
 
-		final DocumentBuilder builder = factory.newDocumentBuilder();
-		final Document document = builder.parse(xml);
-		final Element documentElement = document.getDocumentElement();
-		if (documentElement.getAttribute("xmlns").equals("urn:iso:std:iso:20022:tech:xsd:camt.052.001.03")
-				|| documentElement.getAttribute("xmlns:ns2").equals("urn:iso:std:iso:20022:tech:xsd:camt.052.001.06")) {
-			final Element bkToCstmrAcctRpt = DOMUtil.getElementByName(documentElement, "BkToCstmrAcctRpt");
-			if (bkToCstmrAcctRpt != null) {
-				final BankToCustomerAccountReport bankToCustomerAccountReport = this.bkToCstmrAcctRptParser
-						.parse(bkToCstmrAcctRpt);
-				return bankToCustomerAccountReport;
-			}
-		}
-		return null;
-	}
+    final DocumentBuilder builder = factory.newDocumentBuilder();
+    final Document document = builder.parse(xml);
+    final Element documentElement = document.getDocumentElement();
+    if (documentElement.getAttribute("xmlns")
+        .equals("urn:iso:std:iso:20022:tech:xsd:camt.052.001.03")
+        || documentElement.getAttribute("xmlns:ns2")
+            .equals("urn:iso:std:iso:20022:tech:xsd:camt.052.001.06")
+        || documentElement.getAttribute("xmlns")
+            .equals("urn:iso:std:iso:20022:tech:xsd:camt.052.001.06")) {
+      final Element bkToCstmrAcctRpt = DOMUtil.getElementByName(documentElement,
+          "BkToCstmrAcctRpt");
+      if (bkToCstmrAcctRpt != null) {
+        final BankToCustomerAccountReport bankToCustomerAccountReport = this.bkToCstmrAcctRptParser
+            .parse(bkToCstmrAcctRpt);
+        return bankToCustomerAccountReport;
+      }
+    }
+    return null;
+  }
 }
